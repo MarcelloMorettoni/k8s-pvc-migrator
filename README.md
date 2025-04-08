@@ -120,7 +120,7 @@ output:
 [!] Phase 1 complete. Please manually delete the old PVC(s). Then run this script again with --recreate.
 ```
 
-# MANUAL STEP:
+### MANUAL STEP:
 ```
 kubectl delete pvc data1 -n pv-test
 kubectl delete pvc data2 -n pv-test
