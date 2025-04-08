@@ -54,7 +54,7 @@ python3 moveStorage.py local-path target-path -n staging --delete-pvc
 python3 moveStorage.py local-path target-path -n staging --copy-only
 ```
 
-# Double Pivot PVC Migration
+# Double Pivot PVC Migration - double_pivot_all.py
 
 This tool migrates one or more PVCs from an **old storage class** to a **new storage class** while **keeping the same PVC name**. It uses a “double pivot” approach in **two phases**, managed by a **single Python script**.
 
@@ -75,7 +75,6 @@ This preserves the original PVC names so you **do not** need to patch workloads.
 
 ---
 
-## double_pivot_all.py:
 
 Below is an outline for how to run and use `double_pivot_all.py`.
 
@@ -127,7 +126,8 @@ kubectl delete pvc data1 -n pv-test
 kubectl delete pvc data2 -n pv-test
 ```
 
-# SECOND PHASE: RECREATING THE ORIGINAL ones
+### Phase 2: Recreating new pvcs with the original names
+You must then use the same script with "--recreate"
 
 ```
 python3 double_pivot_all.py local-path target-path -n pv-test --recreate
