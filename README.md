@@ -133,7 +133,7 @@ You must then use the same script with "--recreate"
 python3 double_pivot_all.py local-path target-path -n pv-test --recreate
 ```
 
-## OUTPUT:
+### OUTPUT:
 ```
 [=] Found 2 pivot records in 'double_pivot_metadata.json'.
 [>] Recreating 'data1' in SC 'nvme-o-tcp'
