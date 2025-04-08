@@ -156,3 +156,6 @@ Preserves the temp PVC used by the pivot
 python3 double_pivot_all.py local-path target-path -n pv-test --recreate --preserve-temp
 ```
 
+### Extras:
+You can refer to this post for more examples:
+https://marcellomorettoni.wordpress.com/2025/04/08/k8s-pvc-migrator/
