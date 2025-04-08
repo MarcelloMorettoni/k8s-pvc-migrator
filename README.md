@@ -94,19 +94,20 @@ python3 double_pivot_all.py <oldStorageClass> <newStorageClass> -n <namespace> [
 
 ### Phase 1: Creating Temp PVCs
 
-Identify all PVCs in the old storage class.
-
-Create <pvcName>-temp in the new storage class.
-
-Copy data from <pvcName> → <pvcName>-temp.
-
-Write pivot mapping into double_pivot_metadata.json.
-
 ```bash
-python3 double_pivot_all.py local-path nvme-o-tcp -n pv-test
+python3 double_pivot_all.py local-path target-path -n pv-test
 ```
+This script will:
 
-output:
+- Identify all PVCs in the old storage class.
+
+- Create <pvcName>-temp in the new storage class.
+
+- Copy data from <pvcName> → <pvcName>-temp.
+
+- Write pivot mapping into double_pivot_metadata.json.
+
+### output:
 ```
 [=] Found 2 PVC(s) in 'pv-test' using SC 'local-path'.
 [>] Handling PVC 'data1' → 'data1-temp'
@@ -121,13 +122,15 @@ output:
 ```
 
 ### MANUAL STEP:
+You must then delete the old pvcs yourself.
+
 ```
 kubectl delete pvc data1 -n pv-test
 kubectl delete pvc data2 -n pv-test
 ```
 
 ### Phase 2: Recreating new pvcs with the original names
-You must then use the same script with "--recreate"
+You can now use the same script with the flag "--recreate"
 
 ```
 python3 double_pivot_all.py local-path target-path -n pv-test --recreate
