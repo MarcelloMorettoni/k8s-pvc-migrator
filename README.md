@@ -90,14 +90,3 @@ python3 double_pivot_safe.py old-storage-class new-storage-class -n my-namespace
 
 After a successful migration, you can safely remove the old StorageClass and any unused CSI drivers or plugins if they are no longer needed.
 
----
-
-## License
-
-MIT License
-
----
-
-## Disclaimer
-
-This project is community-supported and provided as-is. Use at your own risk. Always test in non-production environments first.
