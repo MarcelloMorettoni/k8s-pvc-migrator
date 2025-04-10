@@ -4,7 +4,7 @@
 
 ## Overview
 
-`double_pivot_safe.py` is a Kubernetes-native Python tool designed to **safely migrate PersistentVolumeClaims (PVCs)** from one StorageClass to another, without risking data loss or application downtime.
+`double_pivot_safe.py` is a Kubernetes-native Python tool designed to **safely migrate PersistentVolumeClaims (PVCs)** from one StorageClass to another, without risking data loss and with a small application downtime.
 
 The script automates workload scaling, PVC creation, and data transfer using temporary pivot pods and supports a wide variety of Kubernetes workload types.
 
